@@ -45,7 +45,7 @@ public class AnimationController : MonoBehaviour
             }
             else if (other.gameObject.GetComponent<PlayerMovement>().currentObject == "Egg")
             {
-
+                
             }
         }
     }
