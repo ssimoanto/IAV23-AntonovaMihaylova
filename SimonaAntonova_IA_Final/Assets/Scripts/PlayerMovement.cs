@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 destino;
     Vector3 stop = new Vector3(0, 0, 0);
     RaycastHit hit;
-    float speed = 0.0f;
 
     void Start()
     {
@@ -34,9 +33,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, Physics.AllLayers, QueryTriggerInteraction.Ignore))
             {
-
                 destino = hit.point;
-                Debug.Log(hit.point);
             }
         }
         navMeshAgent.destination = destino;
