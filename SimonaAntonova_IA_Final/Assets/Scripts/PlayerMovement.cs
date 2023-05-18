@@ -6,11 +6,23 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    int maxInventario;
+
+
     private NavMeshAgent navMeshAgent;
     private Animator animator;
-    Vector3 destino;
-    Vector3 stop = new Vector3(0, 0, 0);
-    RaycastHit hit;
+    private Vector3 destino;
+    private Vector3 stop = new Vector3(0, 0, 0);
+
+    private int numInventario;
+    public string currentObject;
+    private RaycastHit hit;
+
+    private void Awake()
+    {
+        maxInventario = 1;
+        numInventario = 0;
+    }
 
     void Start()
     {
@@ -37,5 +49,23 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         navMeshAgent.destination = destino;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (numInventario < maxInventario)
+        {
+            if (other.tag == "Trigo" || other.tag == "Flower1" || other.tag == "Flower2" || other.tag == "Flower3" || other.tag == "Egg")
+            {
+                currentObject = other.tag;
+                //other.gameObject.SetActive(false);
+                other.transform.localScale = Vector3.zero;
+                numInventario++;
+            }
+            else if (other.tag == "Producto")
+            {
+
+            }
+        }
     }
 }

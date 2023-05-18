@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Trigo
+  - Flower1
+  - Flower2
+  - Flower3
+  - Egg
+  - Producto
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class AnimationController : MonoBehaviour
     Vector3 stop = new Vector3(0, 0, 0);
     int speed = 0;
     public bool ask = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,14 @@ public class AnimationController : MonoBehaviour
     {
         if (other.name == "Avatar")
         {
-            
+            if (other.gameObject.GetComponent<PlayerMovement>().currentObject == "Trigo")
+            {
+                // ir a dejar el trigo y decir quiero mas noseque
+            }
+            else if (other.gameObject.GetComponent<PlayerMovement>().currentObject == "Egg")
+            {
+
+            }
         }
     }
 }
