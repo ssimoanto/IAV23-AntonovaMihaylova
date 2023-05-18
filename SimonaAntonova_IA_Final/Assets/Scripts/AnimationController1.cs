@@ -31,7 +31,6 @@ public class AnimationController1 : MonoBehaviour
         }
         else
             anim.Play("wave");
-
     }
 
     private void OnTriggerEnter(Collider other)
