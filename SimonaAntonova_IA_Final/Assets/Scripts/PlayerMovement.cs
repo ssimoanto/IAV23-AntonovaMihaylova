@@ -51,6 +51,12 @@ public class PlayerMovement : MonoBehaviour
         navMeshAgent.destination = destino;
     }
 
+    public void releaseInventario()
+    {
+        numInventario = 0;
+        currentObject = "";
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (numInventario < maxInventario)
@@ -62,6 +68,13 @@ public class PlayerMovement : MonoBehaviour
                 other.transform.localScale = Vector3.zero;
                 numInventario++;
             }
+            //if (other.tag == "Trigo" || other.tag == "Flower1" || other.tag == "Flower2" || other.tag == "Flower3" || other.tag == "Huevo")
+            //{
+            //    currentObject = other.tag;
+            //    //other.gameObject.SetActive(false);
+            //    other.transform.localScale = Vector3.zero;
+            //    numInventario++;
+            //}
         }
     }
 }

@@ -10,12 +10,11 @@ using UnityEngine.UIElements;
 
 public class PanaderoController : MonoBehaviour
 {
-    public GameObject tableObjects;
+    //public GameObject tableObjects;
     private NavMeshAgent navMeshAgent;
     private Animation anim;
     Vector3 destino;
     Vector3 stop = new Vector3(0, 0, 0);
-    int speed = 0;
     public bool ask = false;
     Transform[] allChildren;
 
@@ -33,7 +32,7 @@ public class PanaderoController : MonoBehaviour
     {
         anim = GetComponent<Animation>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        allChildren = tableObjects.GetComponentsInChildren<Transform>();
+        //allChildren = tableObjects.GetComponentsInChildren<Transform>();
         string[] productos = { "Cake", "Cookie" };
         AddProducts(productos);
     }
@@ -45,11 +44,7 @@ public class PanaderoController : MonoBehaviour
 
     private void Animations()
     {
-        if (ask)
-        {
-            anim.Play("Dizzy");
-        }
-        else if (navMeshAgent.velocity != stop)
+        if (navMeshAgent.velocity != stop)
         {
             anim.Play("Run");
         }
@@ -62,7 +57,7 @@ public class PanaderoController : MonoBehaviour
         Debug.Log("prooo" + productos[0]);
         for (int i = 0; i < productos.Length; i++)
         {
-            Debug.Log("prooo"+productos[i]);
+            Debug.Log("prooo" + productos[i]);
 
             switch (productos[i])
             {
@@ -83,10 +78,17 @@ public class PanaderoController : MonoBehaviour
         }
     }
 
-    public void DeleteIngredient(string producto, int ingred)
+    public void DeleteIngredient(string producto, string ingrediente)
     {
-        if (currentProducts[producto][ingred] >= 0)
+        int ingred = 0;
+        if(ingrediente == "Trigo") ingred = 0;
+        else if(ingrediente == "Huevo") ingred = 1;
+        if (currentProducts[producto][ingred] > 0)
+        {
             currentProducts[producto][ingred]--;
+
+            Debug.Log("DeleteIngredient, remaining: "+currentProducts[producto][ingred] + " of " + ingrediente);
+        }
     }
     public void DeleteProduct(string producto)
     {
@@ -109,24 +111,19 @@ public class PanaderoController : MonoBehaviour
         }
     }
 
-    public int GetCurrentIngredient()
+    public string GetCurrentIngredient()
     {
-        if (currentProducts.Count == 0)
+        if (currentProducts[currentProducts.Keys.First()][0] > 0)
         {
-            Debug.Log("El diccionario de productos está vacío");
-            return 0;
+            Debug.Log("num trigo: "+ currentProducts[currentProducts.Keys.First()][0]);
+            return "Trigo";
         }
-
-        string firstProduct = currentProducts.Keys.First();
-        List<int> ingredients = currentProducts[firstProduct];
-
-        if (ingredients.Count == 0)
+        else if (currentProducts[currentProducts.Keys.First()][1] > 0)
         {
-            Debug.Log("La lista de ingredientes está vacía para el producto actual");
-            return 0;
+            Debug.Log("num webo: " + currentProducts[currentProducts.Keys.First()][1]);
+            return "Huevo";
         }
-
-        return ingredients[0];
+        else return "0";
     }
 
     public bool HasAllProducts()
@@ -135,7 +132,7 @@ public class PanaderoController : MonoBehaviour
     }
     public bool HasAllIngredients(string producto)
     {
-        return (currentProducts[producto].Count == 0);
+        return (currentProducts[producto][0] == 0 && currentProducts[producto][1] == 0);
     }
 
     // Genera un nuevo punto de merodeo cada vez que agota su tiempo de merodeo actual
