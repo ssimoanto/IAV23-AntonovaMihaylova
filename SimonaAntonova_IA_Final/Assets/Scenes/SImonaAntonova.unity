@@ -11252,7 +11252,7 @@ MonoBehaviour:
   _data:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
-    - {fileID: 11400000, guid: 85120e73884198642b9371198899f1fa, type: 2}
+    - {fileID: 11400000, guid: 4271d29d4a20f0f468d2f44ed5a0da96, type: 2}
 --- !u!114 &1189675404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24242,7 +24242,7 @@ GameObject:
   - component: {fileID: 5866666021018392501}
   m_Layer: 0
   m_Name: Avatar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
