@@ -28,13 +28,28 @@ Para el movimiento de todos los personajes he añadido el sistema de navegación
 
 A continuación, explicaré las máquinas de estados que he implementado:
 
-- Panadero y Florista
+**Panadero y Florista**
 
-Ambos tiene una máquina muy similar, que difiere en algunas posiciones.
+Ambos tiene una máquina muy similar, que difiere en algunas posiciones a las que van.
 
-- Flores, trigo y huevo
+- La máquina de estados es la siguiente:
 
--La máquina de estados es la siguiente:
+> Cada NPC tiene un estado en el que espera a recibir todos los ingredientes de la receta, y posteriormente va a las diferentes posiciones (nevera, mesa, etc.) para "preparar" el producto y finalmente el ultimo estado en el que se entrega el producto al jugador.
+![imagen](https://github.com/ssimoanto/IAV23-AntonovaMihaylova/assets/72394611/80da3b47-1316-4fc8-ae23-68351be431b1)
+
+- Estado Esperando Ingredientes:
+
+> Al entrar en el estado se comprueba si ya estan hechos todos los productos. Si es así el NPC se pone a merodear. Si no, merodea mientras que dice el ingrediente que necesita. Sólo acepta el correcto, si se le ofrece uno que no quiere se enfada. Para pasar al siguiente estado se tienen que recoger todos los ingredientes para la receta.
+![imagen](https://github.com/ssimoanto/IAV23-AntonovaMihaylova/assets/72394611/73addc8d-35a0-4065-8d39-91ca7605a338)
+
+- Estados Ir Nevera, Ir Mesa, Ir Horno, Producto Terminado, etc.
+
+> Funcionan igual, se le añade como destino la posición del objeto al que tiene que ir. Pasa de estado cuando se cumpla el cooldown de cada uno.
+![imagen](https://github.com/ssimoanto/IAV23-AntonovaMihaylova/assets/72394611/567791a0-a03d-4df7-9d94-3371ebd0285d)
+
+**Flores, trigo y huevo**
+
+- La máquina de estados es la siguiente:
 
 > Primero las plantas crecen a lo largo de varios segundos, pasan a crecidas, y si el jugador las coge vuelven al estado de crecer.
 ![imagen](https://github.com/ssimoanto/IAV23-AntonovaMihaylova/assets/72394611/cca5adb0-9ec1-41b8-b7b0-4f61bc1107f8)
@@ -47,6 +62,13 @@ Ambos tiene una máquina muy similar, que difiere en algunas posiciones.
 > Activa el collider hasta que el player lo recoge.                                                                     
 ![imagen](https://github.com/ssimoanto/IAV23-AntonovaMihaylova/assets/72394611/76ae5cc3-c36b-424c-818e-178ce9129e9a)
 
+**Rey Goloso**
+
+Tiene dos estados, en el inicial asigna el pedido, que consiste en 2 productos para cada artista. El otro estado es un merodeo por el castillo. Pienso incoportar un tercer estado para la victoria/derrota.
+
+## Pruebas y métricas
+
+VIDEO
 
 ## Referencias
 Los recursos de terceros utilizados son de uso público.
