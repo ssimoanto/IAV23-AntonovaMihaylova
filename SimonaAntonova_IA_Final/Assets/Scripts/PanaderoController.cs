@@ -15,7 +15,13 @@ public class PanaderoController : MonoBehaviour
     private Animation anim;
     Vector3 destino;
     Vector3 stop = new Vector3(0, 0, 0);
-    public bool ask = false;
+    bool angry = false;
+
+    public bool done = false;
+    public GameObject nevera;
+    public GameObject mesa;
+    public GameObject horno;
+
     Transform[] allChildren;
 
 
@@ -33,18 +39,26 @@ public class PanaderoController : MonoBehaviour
         anim = GetComponent<Animation>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         //allChildren = tableObjects.GetComponentsInChildren<Transform>();
-        string[] productos = { "Cake", "Cookie" };
+        string[] productos = { "Cookie", "Cake" };
         AddProducts(productos);
     }
 
     void Update()
     {
         Animations();
+        Debug.Log("Current COUNT PRODUCT: " + currentProducts.Count);
     }
-
+    public void changeAngry()
+    {
+        angry = !angry;
+    }
     private void Animations()
     {
-        if (navMeshAgent.velocity != stop)
+        if (angry)
+        {
+            anim.Play("Dizzy");
+        }
+        else if (navMeshAgent.velocity != stop)
         {
             anim.Play("Run");
         }
@@ -54,24 +68,20 @@ public class PanaderoController : MonoBehaviour
 
     public void AddProducts(string[] productos)
     {
-        Debug.Log("prooo" + productos[0]);
         for (int i = 0; i < productos.Length; i++)
         {
-            Debug.Log("prooo" + productos[i]);
-
             switch (productos[i])
             {
                 case "Cake":
-                    Debug.Log("Tarta");
                     List<int> cakeIngredients = new List<int>() { 2, 2 };
                     currentProducts[productos[i]] = cakeIngredients;
                     break;
                 case "Cookie":
-                    List<int> cookieIngredients = new List<int>() { 2, 2 };
+                    List<int> cookieIngredients = new List<int>() { 1, 1 };
                     currentProducts[productos[i]] = cookieIngredients;
                     break;
                 case "Bread":
-                    List<int> breadIngredients = new List<int>() { 2, 2 };
+                    List<int> breadIngredients = new List<int>() { 3, 0 };
                     currentProducts[productos[i]] = breadIngredients;
                     break;
             }
@@ -81,25 +91,27 @@ public class PanaderoController : MonoBehaviour
     public void DeleteIngredient(string producto, string ingrediente)
     {
         int ingred = 0;
-        if(ingrediente == "Trigo") ingred = 0;
-        else if(ingrediente == "Huevo") ingred = 1;
+        if (ingrediente == "Trigo") ingred = 0;
+        else if (ingrediente == "Huevo") ingred = 1;
         if (currentProducts[producto][ingred] > 0)
         {
             currentProducts[producto][ingred]--;
 
-            Debug.Log("DeleteIngredient, remaining: "+currentProducts[producto][ingred] + " of " + ingrediente);
+            Debug.Log("DeleteIngredient, remaining: " + currentProducts[producto][ingred] + " of " + ingrediente);
         }
     }
     public void DeleteProduct(string producto)
     {
-        if (currentProducts[producto][0] <= 0 && currentProducts[producto][1] <= 0)
-        {
-            currentProducts.Remove(producto);
-        }
+        currentProducts.Remove(producto);
+        Debug.Log(GetCurrentProduct());
     }
 
     public string GetCurrentProduct()
     {
+        if (currentProducts[currentProducts.Keys.First()][0] <= 0 && currentProducts[currentProducts.Keys.First()][1] <= 0)
+        {
+            DeleteProduct(currentProducts.Keys.First());
+        }
         if (currentProducts.Count == 0)
         {
             Debug.Log("El diccionario de productos está vacío");
@@ -110,12 +122,11 @@ public class PanaderoController : MonoBehaviour
             return currentProducts.Keys.First();
         }
     }
-
     public string GetCurrentIngredient()
     {
         if (currentProducts[currentProducts.Keys.First()][0] > 0)
         {
-            Debug.Log("num trigo: "+ currentProducts[currentProducts.Keys.First()][0]);
+            Debug.Log("num trigo: " + currentProducts[currentProducts.Keys.First()][0]);
             return "Trigo";
         }
         else if (currentProducts[currentProducts.Keys.First()][1] > 0)
@@ -128,7 +139,7 @@ public class PanaderoController : MonoBehaviour
 
     public bool HasAllProducts()
     {
-        return (currentProducts.Count == 0);
+        return (currentProducts.Count <= 0);
     }
     public bool HasAllIngredients(string producto)
     {
@@ -142,7 +153,8 @@ public class PanaderoController : MonoBehaviour
         if (tiempoComienzoMerodeo >= tiempoDeMerodeo)
         {
             tiempoComienzoMerodeo = 0;
-            navMeshAgent.SetDestination(RandomDir(distanciaDeMerodeo));
+            if (!angry)
+                navMeshAgent.SetDestination(RandomDir(distanciaDeMerodeo));
         }
     }
 
@@ -162,6 +174,4 @@ public class PanaderoController : MonoBehaviour
 
         return hit.position;
     }
-
-
 }

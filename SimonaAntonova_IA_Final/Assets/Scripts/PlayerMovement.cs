@@ -6,14 +6,12 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    int maxInventario;
-
-
     private NavMeshAgent navMeshAgent;
     private Animator animator;
     private Vector3 destino;
     private Vector3 stop = new Vector3(0, 0, 0);
 
+    int maxInventario;
     private int numInventario;
     public string currentObject;
     private RaycastHit hit;
