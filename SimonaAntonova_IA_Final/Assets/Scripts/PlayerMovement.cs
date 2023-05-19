@@ -48,10 +48,14 @@ public class PlayerMovement : MonoBehaviour
                 destino = hit.point;
             }
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ReleaseInventario();
+        }
         navMeshAgent.destination = destino;
     }
 
-    public void releaseInventario()
+    public void ReleaseInventario()
     {
         numInventario = 0;
         currentObject = "";
@@ -68,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
                 other.transform.localScale = Vector3.zero;
                 numInventario++;
             }
-            //if (other.tag == "Trigo" || other.tag == "Flower1" || other.tag == "Flower2" || other.tag == "Flower3" || other.tag == "Huevo")
+            //if (other.tag == "Bouquet1" || other.tag == "Bouquet2" || other.tag == "Bouquet3" || other.tag == "Cake" || other.tag == "Cookie"|| other.tag == "Bread")
             //{
             //    currentObject = other.tag;
             //    //other.gameObject.SetActive(false);
@@ -76,5 +80,26 @@ public class PlayerMovement : MonoBehaviour
             //    numInventario++;
             //}
         }
+    }
+
+    void TrigoInstanciate()
+    {
+
+    }
+    void HuevoInstanciate()
+    {
+
+    }
+    void Flower1Instanciate()
+    {
+
+    }
+    void Flower2Instanciate()
+    {
+
+    }
+    void Flower3Instanciate()
+    {
+
     }
 }
