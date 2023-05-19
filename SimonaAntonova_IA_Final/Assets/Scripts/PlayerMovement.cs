@@ -55,16 +55,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (numInventario < maxInventario)
         {
-            if (other.tag == "Trigo" || other.tag == "Flower1" || other.tag == "Flower2" || other.tag == "Flower3" || other.tag == "Egg")
+            if (other.tag == "Trigo" || other.tag == "Flower1" || other.tag == "Flower2" || other.tag == "Flower3" || other.tag == "Huevo")
             {
                 currentObject = other.tag;
                 //other.gameObject.SetActive(false);
                 other.transform.localScale = Vector3.zero;
                 numInventario++;
-            }
-            else if (other.tag == "Producto")
-            {
-
             }
         }
     }
