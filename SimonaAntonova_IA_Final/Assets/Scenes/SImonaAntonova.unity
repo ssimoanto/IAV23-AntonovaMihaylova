@@ -1181,8 +1181,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138536822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.71, y: 0, z: 13.27}
-  m_LocalScale: {x: 2.795528, y: 2, z: 2.295725}
+  m_LocalPosition: {x: 12, y: 0, z: 13.27}
+  m_LocalScale: {x: 2.4111428, y: 2, z: 2.1522422}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 271571435}
@@ -6640,8 +6640,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687511467}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.87, y: 0, z: 16.31}
-  m_LocalScale: {x: 2.125227, y: 2, z: 1.6523438}
+  m_LocalPosition: {x: -14.85, y: 0, z: 17.7}
+  m_LocalScale: {x: 1.9650786, y: 2, z: 1.4156971}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 271571435}
@@ -11240,10 +11240,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a656b85a235732a40a1114746d8898a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  done: 0
   nevera: {fileID: 5413734715653651014}
   mesa: {fileID: 1518642216}
   horno: {fileID: 6202668808381352441}
+  cakePrefab: {fileID: 7872672957721498188, guid: 229b6e6b6aff33743ae498d84fd90c0f, type: 3}
+  cookiePrefab: {fileID: 6021405941877759040, guid: 5cdaa51f5f2039c4da4e742604a299f7, type: 3}
+  breadPrefab: {fileID: 949267405634335531, guid: 33dca8478a0448b419a237caf69e29c9, type: 3}
   tiempoDeMerodeo: 5
   tiempoComienzoMerodeo: 0
   distanciaDeMerodeo: 16
@@ -11620,7 +11622,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceToLetObject (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 440075828361552679, guid: d78f33610b84cc14d8f5f7b0ea56f7ec, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d78f33610b84cc14d8f5f7b0ea56f7ec, type: 3}
 --- !u!1 &1265027095
 GameObject:
@@ -12145,7 +12148,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceToLetObject (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 440075828361552679, guid: d78f33610b84cc14d8f5f7b0ea56f7ec, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d78f33610b84cc14d8f5f7b0ea56f7ec, type: 3}
 --- !u!1 &1303713792
 GameObject:
@@ -19279,8 +19283,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635634818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.29, y: 0, z: -8.42}
-  m_LocalScale: {x: 4.9760394, y: 2, z: 3.3001049}
+  m_LocalPosition: {x: -0.1, y: 0, z: 0.1}
+  m_LocalScale: {x: 4.9760394, y: 2, z: 4.9724865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 271571435}
@@ -20208,10 +20212,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a656b85a235732a40a1114746d8898a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  done: 0
   nevera: {fileID: 0}
   mesa: {fileID: 0}
   horno: {fileID: 0}
+  cakePrefab: {fileID: 0}
+  cookiePrefab: {fileID: 0}
+  breadPrefab: {fileID: 0}
   tiempoDeMerodeo: 5
   tiempoComienzoMerodeo: 0
   distanciaDeMerodeo: 16
@@ -22290,7 +22296,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 440075828361552680, guid: d78f33610b84cc14d8f5f7b0ea56f7ec, type: 3}
       propertyPath: m_Name
-      value: PlaceToLetObject (2)
+      value: PlaceToLetObject_King
+      objectReference: {fileID: 0}
+    - target: {fileID: 440075828361552680, guid: d78f33610b84cc14d8f5f7b0ea56f7ec, type: 3}
+      propertyPath: m_TagString
+      value: Finish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d78f33610b84cc14d8f5f7b0ea56f7ec, type: 3}
@@ -22422,8 +22432,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014448456}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.03, y: 0, z: -16.17}
-  m_LocalScale: {x: 1.9127042, y: 2, z: 1.6523438}
+  m_LocalPosition: {x: 16.2, y: 0, z: -17.8}
+  m_LocalScale: {x: 1.7471359, y: 2, z: 1.3838378}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 271571435}
@@ -24170,7 +24180,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceToLetObject
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 440075828361552679, guid: d78f33610b84cc14d8f5f7b0ea56f7ec, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d78f33610b84cc14d8f5f7b0ea56f7ec, type: 3}
 --- !u!4 &479537985934906649
 Transform:

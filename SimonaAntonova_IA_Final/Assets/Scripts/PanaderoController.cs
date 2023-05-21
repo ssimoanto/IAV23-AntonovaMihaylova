@@ -14,13 +14,17 @@ public class PanaderoController : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private Animation anim;
     Vector3 destino;
+    Vector3 place = new Vector3(-4, 0.03f, 14.5f);
     Vector3 stop = new Vector3(0, 0, 0);
     bool angry = false;
 
-    public bool done = false;
     public GameObject nevera;
     public GameObject mesa;
     public GameObject horno;
+
+    public GameObject cakePrefab;
+    public GameObject cookiePrefab;
+    public GameObject breadPrefab;
 
     Transform[] allChildren;
 
@@ -101,6 +105,18 @@ public class PanaderoController : MonoBehaviour
     }
     public void DeleteProduct(string producto)
     {
+        switch (producto)
+        {
+            case "Cake":
+                Instantiate(cakePrefab);
+                break;
+            case "Cookie":
+                Instantiate(cookiePrefab);
+                break;
+            case "Bread":
+                Instantiate(breadPrefab);
+                break;
+        }
         currentProducts.Remove(producto);
         Debug.Log("Delete product, remaining: " + GetCurrentProduct());
     }

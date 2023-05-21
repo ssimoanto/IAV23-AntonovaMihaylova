@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private Vector3 destino;
     private Vector3 stop = new Vector3(0, 0, 0);
+    Transform headTransform;
 
     int maxInventario;
     private int numInventario;
@@ -20,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
     {
         maxInventario = 1;
         numInventario = 0;
+
+        //headTransform = transform;
+        //headTransform.position = headTransform.position + new Vector3(0, 5, 0);
+        //PlaceObjectHere
     }
 
     void Start()
@@ -70,34 +75,14 @@ public class PlayerMovement : MonoBehaviour
                 other.transform.localScale = Vector3.zero;
                 numInventario++;
             }
-            //if (other.tag == "Bouquet1" || other.tag == "Bouquet2" || other.tag == "Bouquet3" || other.tag == "Cake" || other.tag == "Cookie"|| other.tag == "Bread")
-            //{
-            //    currentObject = other.tag;
-            //    //other.gameObject.SetActive(false);
-            //    other.transform.localScale = Vector3.zero;
-            //    numInventario++;
-            //}
+            else if (other.tag == "Bouquet1" || other.tag == "Bouquet2" || other.tag == "Bouquet3" || other.tag == "Cake" || other.tag == "Cookie" || other.tag == "Bread")
+            {
+                currentObject = other.tag;
+                other.gameObject.GetComponent<Collider>().enabled = false;
+                other.transform.SetParent(transform);
+                other.transform.SetPositionAndRotation(transform.position + new Vector3(0, 3, 0.5f), other.transform.rotation);
+                numInventario++;
+            }
         }
-    }
-
-    void TrigoInstanciate()
-    {
-
-    }
-    void HuevoInstanciate()
-    {
-
-    }
-    void Flower1Instanciate()
-    {
-
-    }
-    void Flower2Instanciate()
-    {
-
-    }
-    void Flower3Instanciate()
-    {
-
     }
 }

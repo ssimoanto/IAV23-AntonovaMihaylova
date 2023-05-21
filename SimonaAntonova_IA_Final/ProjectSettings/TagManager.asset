@@ -8,8 +8,13 @@ TagManager:
   - Flower1
   - Flower2
   - Flower3
-  - Egg
   - Huevo
+  - Cookie
+  - Cake
+  - Bouquet1
+  - Bouquet2
+  - Bouquet3
+  - Bread
   layers:
   - Default
   - TransparentFX
