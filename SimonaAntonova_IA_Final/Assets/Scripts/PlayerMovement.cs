@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UCM.IAV.Movimiento;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,17 +12,31 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 destino;
     private Vector3 stop = new Vector3(0, 0, 0);
     Transform headTransform;
-
     int maxInventario;
     private int numInventario;
-    public string currentObject;
     private RaycastHit hit;
+
+    public string currentObject;
+
+    GameObject currentIngredient;
+
+    public GameObject eggPrefab;
+    public GameObject trigoPrefab;
+    public GameObject flower1Prefab;
+    public GameObject flower2Prefab;
+    public GameObject flower3Prefab;
+
+    Dictionary<string, GameObject> map = new Dictionary<string, GameObject>();
 
     private void Awake()
     {
         maxInventario = 1;
         numInventario = 0;
-
+        map.Add("Huevo", eggPrefab);
+        map.Add("Trigo", trigoPrefab);
+        map.Add("Flower1", flower1Prefab);
+        map.Add("Flower2", flower2Prefab);
+        map.Add("Flower3", flower3Prefab);
         //headTransform = transform;
         //headTransform.position = headTransform.position + new Vector3(0, 5, 0);
         //PlaceObjectHere
@@ -60,8 +75,20 @@ public class PlayerMovement : MonoBehaviour
 
     public void ReleaseInventario()
     {
-        numInventario = 0;
-        currentObject = "";
+        if (numInventario > 0)
+        {
+            //foreach (Transform child in transform)
+            //{
+            //    if(child.name != "Mesh")
+            //    {
+            //        Destroy(child);
+            //    }
+            //}
+
+            Destroy(currentIngredient);
+            numInventario = 0;
+            currentObject = "";
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -74,14 +101,18 @@ public class PlayerMovement : MonoBehaviour
                 //other.gameObject.SetActive(false);
                 other.transform.localScale = Vector3.zero;
                 numInventario++;
+                currentIngredient = Instantiate(map[other.tag]);
+                currentIngredient.transform.SetParent(transform);
+                currentIngredient.transform.SetPositionAndRotation(transform.position + new Vector3(0, 3, -0.5f), currentIngredient.transform.rotation);
             }
             else if (other.tag == "Bouquet1" || other.tag == "Bouquet2" || other.tag == "Bouquet3" || other.tag == "Cake" || other.tag == "Cookie" || other.tag == "Bread")
             {
                 currentObject = other.tag;
                 other.gameObject.GetComponent<Collider>().enabled = false;
-                other.transform.SetParent(transform);
-                other.transform.SetPositionAndRotation(transform.position + new Vector3(0, 3, 0.5f), other.transform.rotation);
                 numInventario++;
+                currentIngredient = other.transform.gameObject;
+                currentIngredient.transform.SetParent(transform);
+                currentIngredient.transform.SetPositionAndRotation(transform.position + new Vector3(0, 3, 0.5f), transform.rotation);
             }
         }
     }
