@@ -17,6 +17,9 @@ public class PanaderoController : MonoBehaviour
     Vector3 place = new Vector3(-4, 0.03f, 14.5f);
     Vector3 stop = new Vector3(0, 0, 0);
     bool angry = false;
+    string currentPopup;
+    string lastPopup;
+
 
     public GameObject nevera;
     public GameObject mesa;
@@ -25,6 +28,9 @@ public class PanaderoController : MonoBehaviour
     public GameObject cakePrefab;
     public GameObject cookiePrefab;
     public GameObject breadPrefab;
+
+    public GameObject trigoPopup;
+    public GameObject huevoPopup;
 
     Transform[] allChildren;
 
@@ -42,15 +48,30 @@ public class PanaderoController : MonoBehaviour
     {
         anim = GetComponent<Animation>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        //allChildren = tableObjects.GetComponentsInChildren<Transform>();
-        //string[] productos = { "Cookie", "Cake" };
-        //AddProducts(productos);
     }
 
     void Update()
     {
         Animations();
-        //Debug.Log("Current COUNT PRODUCT: " + currentProducts.Count);
+        currentPopup = GetCurrentIngredient();
+        if (currentPopup != lastPopup)
+        {
+            if (currentPopup == "Trigo")
+            {
+                trigoPopup.SetActive(true);
+                huevoPopup.SetActive(false);
+            }
+            else if (currentPopup == "Huevo")
+            {
+                trigoPopup.SetActive(false);
+                huevoPopup.SetActive(true);
+            }
+            else
+            {
+                trigoPopup.SetActive(false);
+                huevoPopup.SetActive(false);
+            }
+        }
     }
     public void changeAngry()
     {
@@ -137,12 +158,10 @@ public class PanaderoController : MonoBehaviour
     {
         if (currentProducts[currentProducts.Keys.First()][0] > 0)
         {
-            Debug.Log("num trigo: " + currentProducts[currentProducts.Keys.First()][0]);
             return "Trigo";
         }
         else if (currentProducts[currentProducts.Keys.First()][1] > 0)
         {
-            Debug.Log("num webo: " + currentProducts[currentProducts.Keys.First()][1]);
             return "Huevo";
         }
         else return "0";

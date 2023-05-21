@@ -9,8 +9,8 @@ public class Timer : MonoBehaviour
     public Image uiFill;
     public TextMeshProUGUI uiText;
 
-    public float duration = 120.0f;
-    float targetTime = 120.0f;
+    public float duration = 180.0f;
+    float targetTime = 180.0f;
     bool done = false;
 
     void Update()

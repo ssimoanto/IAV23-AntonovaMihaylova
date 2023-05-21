@@ -37,15 +37,15 @@ public class KingManager : MonoBehaviour
         names1.Add("Cake");
         names1.Add("Cookie");
         names1.Add("Bread");
-        //names2.Add("Bouquet1");
-        //names2.Add("Bouquet2");
-        //names2.Add("Bouquet3");
+        names2.Add("Bouquet1");
+        names2.Add("Bouquet2");
+        names2.Add("Bouquet3");
         int num = Random.Range(0, 2);
         names1.RemoveAt(num);
-        //num = Random.Range(0, 2);
-        //names2.RemoveAt(num);
+        num = Random.Range(0, 2);
+        names2.RemoveAt(num);
         panadero.GetComponent<PanaderoController>().AddProducts(names1);
-        //florista.GetComponent<FloristaController>().AddProducts(names2);
+        florista.GetComponent<FloristaController>().AddProducts(names2);
 
         // Iconos
         for (int i = 0; i < 2; i++)
@@ -62,18 +62,18 @@ public class KingManager : MonoBehaviour
                     imageBread.GetComponent<Image>().enabled = true;
                     break;
             }
-            //switch (names2[i])
-            //{
-            //    case "Bouquet1":
-            //        imageBouquet1.GetComponent<Image>().enabled = true;
-            //        break;
-            //    case "Bouquet2":
-            //        imageBouquet2.GetComponent<Image>().enabled = true;
-            //        break;
-            //    case "Bouquet3":
-            //        imageBouquet3.GetComponent<Image>().enabled = true;
-            //        break;
-            //}
+            switch (names2[i])
+            {
+                case "Bouquet1":
+                    imageBouquet1.GetComponent<Image>().enabled = true;
+                    break;
+                case "Bouquet2":
+                    imageBouquet2.GetComponent<Image>().enabled = true;
+                    break;
+                case "Bouquet3":
+                    imageBouquet3.GetComponent<Image>().enabled = true;
+                    break;
+            }
         }
     }
     private void Start()
@@ -83,10 +83,6 @@ public class KingManager : MonoBehaviour
     public bool CheckProducts()
     {
         return (names1.Count == 0 && names2.Count == 0);
-    }
-    public void PauseGame()
-    {
-        Time.timeScale = 0;
     }
     public void MenuScene()
     {
@@ -107,18 +103,18 @@ public class KingManager : MonoBehaviour
                 imageBread.GetComponent<Image>().enabled = false;
                 break;
         }
-        //switch (product)
-        //{
-        //    case "Bouquet1":
-        //        imageBouquet1.GetComponent<Image>().enabled = false;
-        //        break;
-        //    case "Bouquet2":
-        //        imageBouquet2.GetComponent<Image>().enabled = false;
-        //        break;
-        //    case "Bouquet3":
-        //        imageBouquet3.GetComponent<Image>().enabled = false;
-        //        break;
-        //}
+        switch (product)
+        {
+            case "Bouquet1":
+                imageBouquet1.GetComponent<Image>().enabled = false;
+                break;
+            case "Bouquet2":
+                imageBouquet2.GetComponent<Image>().enabled = false;
+                break;
+            case "Bouquet3":
+                imageBouquet3.GetComponent<Image>().enabled = false;
+                break;
+        }
     }
     public bool IsProductValid(string producto)
     {
