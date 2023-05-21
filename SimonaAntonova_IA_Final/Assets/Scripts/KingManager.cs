@@ -35,13 +35,13 @@ public class KingManager : MonoBehaviour
     {
         names1.Add("Cake");
         names1.Add("Cookie");
-        //names1.Add("Bread");
+        names1.Add("Bread");
         //names2.Add("Bouquet1");
         //names2.Add("Bouquet2");
         //names2.Add("Bouquet3");
         int num = Random.Range(0, 2);
         names1.RemoveAt(num);
-        num = Random.Range(0, 2);
+        //num = Random.Range(0, 2);
         //names2.RemoveAt(num);
         panadero.GetComponent<PanaderoController>().AddProducts(names1);
         //florista.GetComponent<FloristaController>().AddProducts(names2);
