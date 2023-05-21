@@ -43,8 +43,8 @@ public class PanaderoController : MonoBehaviour
         anim = GetComponent<Animation>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         //allChildren = tableObjects.GetComponentsInChildren<Transform>();
-        string[] productos = { "Cookie", "Cake" };
-        AddProducts(productos);
+        //string[] productos = { "Cookie", "Cake" };
+        //AddProducts(productos);
     }
 
     void Update()
@@ -70,9 +70,9 @@ public class PanaderoController : MonoBehaviour
             anim.Play("Idle");
     }
 
-    public void AddProducts(string[] productos)
+    public void AddProducts(List<string> productos)
     {
-        for (int i = 0; i < productos.Length; i++)
+        for (int i = 0; i < productos.Count; i++)
         {
             switch (productos[i])
             {

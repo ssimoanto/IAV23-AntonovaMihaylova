@@ -90,7 +90,6 @@ public class PlayerMovement : MonoBehaviour
             currentObject = "";
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (numInventario < maxInventario)
