@@ -11240,6 +11240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a656b85a235732a40a1114746d8898a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  done: 0
   nevera: {fileID: 5413734715653651014}
   mesa: {fileID: 1518642216}
   horno: {fileID: 6202668808381352441}
@@ -20179,6 +20180,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 136479672647553860, guid: 02fd4f45795807c469e76f06078fe76f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02fd4f45795807c469e76f06078fe76f, type: 3}
 --- !u!1 &1712028730 stripped
@@ -20203,6 +20208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a656b85a235732a40a1114746d8898a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  done: 0
   nevera: {fileID: 0}
   mesa: {fileID: 0}
   horno: {fileID: 0}

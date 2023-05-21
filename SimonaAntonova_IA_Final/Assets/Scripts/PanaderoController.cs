@@ -46,7 +46,7 @@ public class PanaderoController : MonoBehaviour
     void Update()
     {
         Animations();
-        Debug.Log("Current COUNT PRODUCT: " + currentProducts.Count);
+        //Debug.Log("Current COUNT PRODUCT: " + currentProducts.Count);
     }
     public void changeAngry()
     {
@@ -96,22 +96,17 @@ public class PanaderoController : MonoBehaviour
         if (currentProducts[producto][ingred] > 0)
         {
             currentProducts[producto][ingred]--;
-
             Debug.Log("DeleteIngredient, remaining: " + currentProducts[producto][ingred] + " of " + ingrediente);
         }
     }
     public void DeleteProduct(string producto)
     {
         currentProducts.Remove(producto);
-        Debug.Log(GetCurrentProduct());
+        Debug.Log("Delete product, remaining: " + GetCurrentProduct());
     }
 
     public string GetCurrentProduct()
     {
-        if (currentProducts[currentProducts.Keys.First()][0] <= 0 && currentProducts[currentProducts.Keys.First()][1] <= 0)
-        {
-            DeleteProduct(currentProducts.Keys.First());
-        }
         if (currentProducts.Count == 0)
         {
             Debug.Log("El diccionario de productos está vacío");
@@ -164,13 +159,11 @@ public class PanaderoController : MonoBehaviour
         Vector3 dir = UnityEngine.Random.insideUnitSphere * distance;
         dir += transform.position;
         NavMeshHit hit;
-        do
-        {
-            dir = UnityEngine.Random.insideUnitSphere * distance;
-            dir += transform.position;
-            NavMesh.SamplePosition(dir, out hit, distance, NavMesh.AllAreas);
-        }
-        while (!(NavMesh.SamplePosition(dir, out hit, 0.1f, NavMesh.GetAreaFromName("Panaderia"))));
+
+        dir = UnityEngine.Random.insideUnitSphere * distance;
+        dir += transform.position;
+        NavMesh.SamplePosition(dir, out hit, distance, NavMesh.AllAreas);
+
 
         return hit.position;
     }
