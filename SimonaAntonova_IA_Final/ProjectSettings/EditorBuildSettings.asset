@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: f4ad2834cff2562489a6c4254f3a4c19
+  - enabled: 1
+    path: Assets/Scenes/SImonaAntonova.unity
+    guid: 94b2a3a6b7d78fb43a3c690098f33a60
   m_configObjects: {}

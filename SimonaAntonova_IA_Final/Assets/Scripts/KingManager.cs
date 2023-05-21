@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class KingManager : MonoBehaviour
@@ -82,6 +83,14 @@ public class KingManager : MonoBehaviour
     public bool CheckProducts()
     {
         return (names1.Count == 0 && names2.Count == 0);
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+    public void MenuScene()
+    {
+        SceneManager.LoadScene("Menu");
     }
     public void setUIoff(string product)
     {
