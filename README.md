@@ -68,11 +68,12 @@ Tiene dos estados, en el inicial asigna el pedido, que consiste en 2 productos p
 
 ## Pruebas y métricas
 
-VIDEO
+[VIDEO](https://youtu.be/nG3ys4XHsJ0)
 
 ## Referencias
 Los recursos de terceros utilizados son de uso público.
 
-- *AI for Games*, Ian Millington.
 - https://docs.unity3d.com/bolt/1.4/manual/index.html
-- 
+- Sonidos de [Zapsplat](https://www.zapsplat.com/)
+- Assets de Unity Asset Store: [flores](https://assetstore.unity.com/packages/3d/vegetation/plants/lowpoly-flowers-47083), [gallinas](https://assetstore.unity.com/packages/3d/characters/animals/meshtint-free-chicken-mega-toon-series-151842), [panadero y florista](https://assetstore.unity.com/packages/3d/characters/viass-free-character-pack-141471), [electrodomésticos](https://assetstore.unity.com/packages/3d/props/electronics/kitchen-appliance-low-poly-180419), [mesa](https://assetstore.unity.com/packages/3d/environments/training-table-136070) y [Efectos especiales](https://assetstore.unity.com/packages/vfx/particles/3d-games-effects-pack-free-42285).
+- Assets de Sketchfab: [pan](https://skfb.ly/6Suon), [tarta](https://skfb.ly/oG7TL), [tulipanes](https://skfb.ly/o6psE), [jarrón con flores](https://skfb.ly/6WnFC) y [ramo de flores](https://skfb.ly/oBUBA).
