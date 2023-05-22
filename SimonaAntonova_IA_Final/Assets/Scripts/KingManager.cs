@@ -24,9 +24,10 @@ public class KingManager : MonoBehaviour
     public GameObject imageBouquet2;
     public GameObject imageBouquet3;
 
-
     public GameObject panadero;
     public GameObject florista;
+
+    public GameObject efects;
 
     string[] productos = { "", "" };
     List<string> names1 = new List<string>();
@@ -80,14 +81,17 @@ public class KingManager : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
+
     public bool CheckProducts()
     {
         return (names1.Count == 0 && names2.Count == 0);
     }
+
     public void MenuScene()
     {
         SceneManager.LoadScene("Menu");
     }
+
     public void setUIoff(string product)
     {
 
@@ -116,6 +120,7 @@ public class KingManager : MonoBehaviour
                 break;
         }
     }
+
     public bool IsProductValid(string producto)
     {
         foreach (var item in names1)
@@ -156,6 +161,11 @@ public class KingManager : MonoBehaviour
             }
         }
         return ("");
+    }
+
+    public void FinalEffect()
+    {
+        efects.SetActive(true);
     }
 
     // Genera un nuevo punto de merodeo cada vez que agota su tiempo de merodeo actual
