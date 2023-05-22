@@ -8,7 +8,7 @@ Simona Antonova Mihaylova
 Para el proyecto final de la asignatura de Inteligencia Artificial 2023 he decidido hacer un divertido juego llamado "El Rey Goloso", en el que el jugador es un intrépido aventurero en el Reino de Golosus. El objetivo principal del juego es ayudar al rey a satisfacer sus antojos de tartas y ramos de flores, recolectando los objetos necesarios para que el panadero y el florista puedan hacer los pedidos necesarios dentro del tiempo otorgado.
 
 Los personajes principales son:
-- Player: es el encargado de recoger una variedad de flores exóticas y huevos de gallinas mágicas, asi como llevar al rey sus deliciosas tartas y sus preciosos ramos.
+- Player: es el encargado de recoger una variedad de flores exóticas y huevos de gallinas mágicas, así como llevar al rey sus deliciosas tartas y sus preciosos ramos.
 - Panadero: NPC que recoge trigo y huevos para hacer tartas, galletas o pan.
 - Fantasma: NPC que recoge flores para adornar los ramos.
 - Rey Golosus: NPC dorado que hace el pedido de tartas y ramos.
@@ -19,7 +19,7 @@ He utilizado múltiples máquinas de estados para programar la inteligencia arti
 El jugador tiene un pedido de 4 productos. El panadero y el florista tienen un indicador del ingrediente que necesitan. El jugador irá recogiendo uno por uno los ingredientes e irá entregándolos. Acto seguido, cada uno  de los artistas dejará el producto en su lugar de recogida donde el player lo recogerá y se lo tendrá que llevar al rey. Cuando el rey tenga todo, se gana la partida.
 
 ## Punto de partida
-Para el mapa he usado algunos assets de la [práctica 1](https://github.com/IAV23-G15/IAV23-G15-P1), asi como otros recursos gratuitos del Asset Store de Unity, y algunos modelos gratuitos de Sketchfab.
+Para el mapa he usado algunos assets de la [práctica 1](https://github.com/IAV23-G15/IAV23-G15-P1), así como otros recursos gratuitos del Asset Store de Unity, y algunos modelos gratuitos de Sketchfab.
 
 ## Diseño de la solución
 
@@ -52,7 +52,7 @@ Ambos tiene una máquina muy similar, que difiere en algunas posiciones a las qu
 
 - Estados Ir Nevera, Ir Mesa, Ir Horno, Producto Terminado, etc.
 
-> Funcionan igual, se le añade como destino la posición del objeto al que tiene que ir. Pasa de estado cuando se cumpla el cooldown de cada uno.
+> Funcionan igual, se le añade como destino la posición del objeto al que tiene que ir. Pasa de estado cuando se cumpla el cooldown de cada uno.                                              
 ![imagen](https://github.com/ssimoanto/IAV23-AntonovaMihaylova/assets/72394611/567791a0-a03d-4df7-9d94-3371ebd0285d)
 
 **Flores, trigo y huevo**
