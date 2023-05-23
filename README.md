@@ -24,18 +24,24 @@ Para el mapa he usado algunos assets de la [práctica 1](https://github.com/IAV2
 ## Diseño de la solución
 
 A. Movimiento
-    A1. El jugador se mueve mediante click izquierdo por el mapa.
-    A2. Los NPC merodean por sus zonas.
+- A1. El jugador se mueve mediante click izquierdo por el mapa.
+- A2. Los NPC merodean por sus zonas.
+
 B. Recoger y dejar
-    B1. El jugador recoge un objeto y lo suelta con el espacio.
-    B2. Si el jugador se acerca a un NPC con el objeto correcto, este lo recoge.
+- B1. El jugador recoge un objeto y lo suelta con el espacio.
+- B2. Si el jugador se acerca a un NPC con el objeto correcto, este lo recoge.
+
     - El panadero y el florista recogen ingredientes hasta que tienen los suficientes para el producto.
     - El rey sólo recoge los productos.
+
 C. Producción de los productos
-    C1. Los NPC van a distintas posiciones simulando la preparación de los productos.
-    C2. Cuando terminan dejan el producto en el lugar de recogida.
+- C1. Los NPC van a distintas posiciones simulando la preparación de los productos.
+- C2. Cuando terminan dejan el producto en el lugar de recogida.
+
 D. Ganar. Si se entregan todos los productos al rey se gana la partida.
+
 E. Perder. Si se acaba el tiempo, se pierde.
+
 
 He implementado una serie de scripts para el proyecto, pero los más importantes de cara a la inteligencia artificial son los siguientes:
 - PanaderoController y FloristaController: Se encargan del merodeo, las animaciones y la gestión de los ingredientes.
